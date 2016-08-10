@@ -6,7 +6,7 @@ chmod 0644 /etc/cron.d/mysqldump
 
 cat <<EOF > /mysqldump.sh
 #!/bin/bash
-/usr/local/mysql/bin/mysqldump --verbose -h $DB_HOST --all-databases --ignore-table=mysql.event -uroot -p$MYSQL_ROOT_PASSWORD | gzip > $BACKUP_DIR/$BACKUP_FILE-$(date +"%Y%m%d-%H%M").sql.gz
+/usr/local/mysql/bin/mysqldump --verbose -h $DB_HOST --all-databases --ignore-table=mysql.event -uroot -p$MYSQL_ROOT_PASSWORD | gzip > $BACKUP_DIR/$BACKUP_FILE-\$(date +"%Y%m%d-%H%M").sql.gz
 EOF
 chmod 0755 /mysqldump.sh
 
